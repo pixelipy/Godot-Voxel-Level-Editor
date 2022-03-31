@@ -1,0 +1,38 @@
+[gd_resource type="Environment" load_steps=3 format=2]
+
+[ext_resource path="res://sky/syferfontein_1d_clear_4k.hdr" type="Texture" id=1]
+
+[sub_resource type="PanoramaSky" id=1]
+radiance_size = 4
+panorama = ExtResource( 1 )
+
+[resource]
+background_mode = 2
+background_sky = SubResource( 1 )
+background_sky_orientation = Basis( 0.15902, 0, 0.987275, 0, 1, 0, -0.987275, 0, 0.15902 )
+background_color = Color( 0.517647, 0.627451, 0.635294, 1 )
+ambient_light_color = Color( 0.666667, 0.666667, 0.666667, 1 )
+ambient_light_sky_contribution = 0.2
+tonemap_mode = 2
+tonemap_exposure = 0.8
+tonemap_white = 16.0
+ssao_enabled = true
+ssao_radius = 0.2
+ssao_intensity2 = 0.0
+ssao_bias = 0.001
+ssao_light_affect = 1.0
+ssao_color = Color( 0.0862745, 0.0862745, 0.270588, 1 )
+ssao_edge_sharpness = 0.0
+dof_blur_far_distance = 11.0
+dof_blur_far_transition = 10.21
+dof_blur_far_amount = 0.08
+dof_blur_near_distance = 6.52
+glow_intensity = 0.1
+glow_strength = 0.91
+glow_bloom = 1.0
+glow_blend_mode = 0
+glow_hdr_threshold = 1.2
+adjustment_enabled = true
+adjustment_brightness = 0.9
+adjustment_contrast = 1.1
+adjustment_saturation = 1.5

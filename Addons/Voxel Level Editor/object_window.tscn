@@ -1,0 +1,254 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Addons/Voxel Level Editor/object_window.gd" type="Script" id=1]
+[ext_resource path="res://Addons/Voxel Level Editor/Textures/snapping_button.png" type="Texture" id=2]
+[ext_resource path="res://Addons/Voxel Level Editor/UI/button_hover.tres" type="StyleBox" id=3]
+[ext_resource path="res://Addons/Voxel Level Editor/UI/button_normal.tres" type="StyleBox" id=4]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.415686, 0.00392157, 0.0627451, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.137255, 0.145098, 0.180392, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="object_window" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+margin_right = 199.0
+margin_bottom = 1088.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Controls" type="Label" parent="ScrollContainer/VBoxContainer"]
+margin_right = 199.0
+margin_bottom = 150.0
+text = "Controls
+Z - layer up
+X - layer Down
+
+comma - rotate left
+period - rotate right
+
+left mouse - Place block
+shift + left mouse - erase block"
+align = 1
+valign = 1
+
+[node name="deactivate" type="Button" parent="ScrollContainer/VBoxContainer"]
+margin_top = 154.0
+margin_right = 199.0
+margin_bottom = 172.0
+custom_styles/normal = SubResource( 2 )
+text = "Deactivate"
+
+[node name="debug" type="PanelContainer" parent="ScrollContainer/VBoxContainer"]
+margin_top = 176.0
+margin_right = 199.0
+margin_bottom = 230.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/debug"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 197.0
+margin_bottom = 52.0
+
+[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/debug/VBoxContainer"]
+margin_right = 195.0
+margin_bottom = 14.0
+text = "Debug"
+align = 1
+valign = 1
+
+[node name="Active_Block" type="Label" parent="ScrollContainer/VBoxContainer/debug/VBoxContainer"]
+margin_top = 18.0
+margin_right = 195.0
+margin_bottom = 32.0
+text = "Active_Block: NONE"
+
+[node name="Active_object" type="Label" parent="ScrollContainer/VBoxContainer/debug/VBoxContainer"]
+margin_top = 36.0
+margin_right = 195.0
+margin_bottom = 50.0
+text = "Active_Object: NONE"
+
+[node name="options" type="PanelContainer" parent="ScrollContainer/VBoxContainer"]
+margin_top = 234.0
+margin_right = 199.0
+margin_bottom = 350.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/options"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 197.0
+margin_bottom = 114.0
+
+[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/options/VBoxContainer"]
+margin_right = 195.0
+margin_bottom = 14.0
+text = "Options"
+align = 1
+valign = 1
+
+[node name="brush_size_label" type="Label" parent="ScrollContainer/VBoxContainer/options/VBoxContainer"]
+margin_top = 18.0
+margin_right = 195.0
+margin_bottom = 32.0
+text = "Brush Size = 1"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="brush_size" type="HSlider" parent="ScrollContainer/VBoxContainer/options/VBoxContainer"]
+margin_top = 36.0
+margin_right = 195.0
+margin_bottom = 52.0
+max_value = 10.0
+step = 2.0
+
+[node name="brush_height_label" type="Label" parent="ScrollContainer/VBoxContainer/options/VBoxContainer"]
+margin_top = 56.0
+margin_right = 195.0
+margin_bottom = 70.0
+text = "Brush Height = 1"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="brush_height" type="HSlider" parent="ScrollContainer/VBoxContainer/options/VBoxContainer"]
+margin_top = 74.0
+margin_right = 195.0
+margin_bottom = 90.0
+min_value = 1.0
+max_value = 10.0
+value = 1.0
+
+[node name="randomize_blocks" type="Button" parent="ScrollContainer/VBoxContainer/options/VBoxContainer"]
+margin_top = 94.0
+margin_right = 195.0
+margin_bottom = 112.0
+custom_styles/hover = ExtResource( 3 )
+custom_styles/normal = ExtResource( 4 )
+text = "Randomize Blocks = off"
+
+[node name="Blocks" type="PanelContainer" parent="ScrollContainer/VBoxContainer"]
+margin_top = 354.0
+margin_right = 199.0
+margin_bottom = 852.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Blocks"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 197.0
+margin_bottom = 496.0
+
+[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Blocks/VBoxContainer"]
+margin_right = 195.0
+margin_bottom = 14.0
+text = "Blocks!"
+align = 1
+valign = 1
+
+[node name="Block_Contents" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Blocks/VBoxContainer"]
+margin_top = 18.0
+margin_right = 195.0
+margin_bottom = 494.0
+
+[node name="Objects" type="PanelContainer" parent="ScrollContainer/VBoxContainer"]
+margin_top = 856.0
+margin_right = 199.0
+margin_bottom = 1088.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Objects"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 197.0
+margin_bottom = 230.0
+
+[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Objects/VBoxContainer"]
+margin_right = 195.0
+margin_bottom = 14.0
+text = "Objects"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="snapping_label" type="Label" parent="ScrollContainer/VBoxContainer/Objects/VBoxContainer"]
+margin_top = 18.0
+margin_right = 195.0
+margin_bottom = 32.0
+text = "Snapping_X"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="snapping_x" type="ItemList" parent="ScrollContainer/VBoxContainer/Objects/VBoxContainer"]
+margin_top = 36.0
+margin_right = 195.0
+margin_bottom = 85.0
+items = [ "0.5", ExtResource( 2 ), false, "1.0", ExtResource( 2 ), false, "2.0", ExtResource( 2 ), false, "3.0", ExtResource( 2 ), false, "4.0", ExtResource( 2 ), false, "5.0", ExtResource( 2 ), false ]
+allow_rmb_select = true
+auto_height = true
+max_columns = 10
+
+[node name="snapping_label2" type="Label" parent="ScrollContainer/VBoxContainer/Objects/VBoxContainer"]
+margin_top = 89.0
+margin_right = 195.0
+margin_bottom = 103.0
+text = "Snapping_Y"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="snapping_y" type="ItemList" parent="ScrollContainer/VBoxContainer/Objects/VBoxContainer"]
+margin_top = 107.0
+margin_right = 195.0
+margin_bottom = 156.0
+items = [ "0.5", ExtResource( 2 ), false, "1.0", ExtResource( 2 ), false, "2.0", ExtResource( 2 ), false, "3.0", ExtResource( 2 ), false, "4.0", ExtResource( 2 ), false, "5.0", ExtResource( 2 ), false ]
+allow_rmb_select = true
+auto_height = true
+max_columns = 10
+
+[node name="Object_Contents" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Objects/VBoxContainer"]
+margin_top = 160.0
+margin_right = 195.0
+margin_bottom = 228.0
+
+[node name="cursors" type="Spatial" parent="."]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Addons/Voxel Level Editor/world_gen/Chunk.gd" type="Script" id=1]
+
+[node name="Chunk" type="StaticBody"]
+script = ExtResource( 1 )

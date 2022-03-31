@@ -1,0 +1,68 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "",
+"class": "GitAPI",
+"language": "NativeScript",
+"path": "res://git_api.gdns"
+}, {
+"base": "Button",
+"class": "block_button",
+"language": "GDScript",
+"path": "res://Addons/Voxel Level Editor/UI/block_button.gd"
+}, {
+"base": "Button",
+"class": "object_button",
+"language": "GDScript",
+"path": "res://Addons/Voxel Level Editor/UI/object_button.gd"
+}, {
+"base": "Spatial",
+"class": "voxel_world",
+"language": "GDScript",
+"path": "res://Addons/Voxel Level Editor/world_gen/World_voxel.gd"
+} ]
+_global_script_class_icons={
+"GitAPI": "",
+"block_button": "",
+"object_button": "",
+"voxel_world": ""
+}
+
+[application]
+
+config/name="Voxel Editor"
+config/description="Voxel Editor Plugin for Godot Engine."
+run/main_scene="res://Addons/Example Project/World.tscn"
+config/icon="res://icon.png"
+
+[debug]
+
+gdscript/warnings/enable=false
+
+[display]
+
+window/size/fullscreen=true
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/Voxel Level Editor/plugin.cfg" )
+
+[gdnative]
+
+singletons=[ "res://git_api.gdnlib" ]
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"
