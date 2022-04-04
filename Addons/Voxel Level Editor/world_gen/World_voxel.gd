@@ -2,7 +2,6 @@ extends Spatial
 tool
 class_name voxel_world
 
-var cur_chunk = Vector3(0,0,0)
 var chunk_scene = preload("res://Addons/Voxel Level Editor/world_gen/Chunk.tscn")
 var chunks = []
 var cur_player_chunk = Vector3(0,0,0)
@@ -67,7 +66,7 @@ func place_block(array_of_pos : Array,block_array : Array):
 		
 		#determines the chunk a position belongs
 		var pos_vec = Vector3(position_x,pos.y, position_z)
-		cur_chunk = get_chunk_coordinate(pos_vec)
+		var cur_chunk = get_chunk_coordinate(pos_vec)
 		var chunk_key = [cur_chunk.x,cur_chunk.y]
 		var chunk_name = str(cur_chunk.x,"_",cur_chunk.y)
 		var chunk_to_edit = get_node_or_null(str("Chunks/"+chunk_name))
@@ -126,7 +125,7 @@ func erase_block(array_of_pos : Array):
 		
 		var pos_vec = Vector3(position_x,pos.y, position_z)
 		
-		cur_chunk = get_chunk_coordinate(pos_vec)
+		var cur_chunk = get_chunk_coordinate(pos_vec)
 		var chunk_key = [cur_chunk.x,cur_chunk.y]
 		var chunk_name = str(cur_chunk.x,"_",cur_chunk.y)
 		var chunk_to_edit = get_node_or_null(str("Chunks/"+chunk_name))
@@ -175,7 +174,7 @@ func return_neighboor_chunks_at_pos(pos_vec):
 
 func get_chunk_in_coordinate(x,y,z):
 	var pos_vec = Vector3(x,y,z)
-	cur_chunk = get_chunk_coordinate(pos_vec)
+	var cur_chunk = get_chunk_coordinate(pos_vec)
 	var chunk_name = str(cur_chunk.x,"_",cur_chunk.y)
 	
 	var chunk_to_edit = get_node_or_null(str("Chunks/"+chunk_name))
@@ -183,7 +182,7 @@ func get_chunk_in_coordinate(x,y,z):
 	pass
 
 func get_chunk_coordinate(vec3 : Vector3):
-	cur_chunk = Vector2(floor(vec3.x/chunk_size.x),floor(vec3.z/chunk_size.y))
+	var cur_chunk = Vector2(floor(vec3.x/chunk_size.x),floor(vec3.z/chunk_size.y))
 	return cur_chunk
 	pass
 
@@ -197,7 +196,7 @@ func place_object(pos,t,rot):
 	
 	var pos_vec = Vector3(position_x,pos.y, position_z)
 	
-	cur_chunk = get_chunk_coordinate(pos_vec)
+	var cur_chunk = get_chunk_coordinate(pos_vec)
 	var chunk_key = [cur_chunk.x,cur_chunk.y]
 	var chunk_name = str(cur_chunk.x,"_",cur_chunk.y)
 	
@@ -230,7 +229,7 @@ func erase_object(pos):
 	
 	var pos_vec = Vector3(position_x,pos.y, position_z)
 	
-	cur_chunk = get_chunk_coordinate(pos_vec)
+	var cur_chunk = get_chunk_coordinate(pos_vec)
 	var chunk_key = [cur_chunk.x,cur_chunk.y]
 	var chunk_name = str(cur_chunk.x,"_",cur_chunk.y)
 	
