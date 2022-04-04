@@ -4,8 +4,8 @@ tool
 #(texture block size / separation between blocks)
 #the textures are 16x16, with a 4px separation for texture bleeding
 #texture bleeding is important to avoid inbetween texture seams!!
-const tile_size = 16
-const separation_between_textures = 4
+const tile_size = 16.0
+const separation_between_textures = 4.0
 
 #size of your atlas image
 const atlas_width = 96
