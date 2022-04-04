@@ -301,7 +301,7 @@ func finished_current_thread():
 	$UI/Control/VBoxContainer/generating.set("custom_colors/font_color", Color.green)
 
 func _exit_tree():
-	if thread:
+	if thread.is_active():
 		thread.wait_to_finish()
 
 func _input(event):
